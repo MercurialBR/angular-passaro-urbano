@@ -18,7 +18,7 @@ export class CorpoComponent implements OnInit {
   ngOnInit() {
     //  this. ofertas = this.ofertasService.getOfertas()
 
-    this.ofertasService.getOfertas2()
+    this.ofertasService.getOfertas()
       .then((ofertas: Oferta[]) => {
         console.log('depois de 3seg')
         this.ofertas = ofertas
