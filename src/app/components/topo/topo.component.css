@@ -5,15 +5,15 @@
 .nav-link {
   color: #C1E4FF
 }
-
-.nav-link:hover{
-  color: #FFF
+.nav-link:hover {
+  color: #FFFFFF;
 }
 
 .active {
-  color: #FFF
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
 .fixed-top {
-  background-color: #FFF;
+  background-color: #FFFFFF;
 }
