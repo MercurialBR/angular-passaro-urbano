@@ -25,6 +25,7 @@ h1 {
 
 .thumbnails img {
   margin-left: 4px;
+  margin-top: 4px;
   width: 130px;
   height: auto;
 }

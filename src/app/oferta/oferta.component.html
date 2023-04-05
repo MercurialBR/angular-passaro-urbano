@@ -45,23 +45,18 @@
     <div class="col">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#como-usar" type="button"
-            role="tab" aria-selected="true"> Como usar </button>
+          <button class="nav-link active" data-bs-toggle="tab" type="button"
+            role="tab" aria-selected="true"[routerLink]="['como-usar']"> Como usar </button>
         </li>
 
         <li class="nav-item" role="presentation">
-          <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#onde-fica" type="button"
-            role="tab" aria-selected="false"> Onde Fica </button>
+          <button class="nav-link"  data-bs-toggle="tab" type="button"
+            role="tab" aria-selected="false" [routerLink]="['onde-fica']"> Onde Fica </button>
         </li>
 
       </ul>
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="como-usar" role="tabpanel" tabindex="0">
-          Exemplo!!!
-        </div>
-        <div class="tab-pane fade" id="onde-fica" role="tabpanel" tabindex="0">
-          Exemplo!!!!!!!!!!!
-        </div>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
