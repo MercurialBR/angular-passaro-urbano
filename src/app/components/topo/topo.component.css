@@ -17,3 +17,7 @@
 .fixed-top {
   background-color: #FFFFFF;
 }
+
+.form-control {
+  margin: 20px 0;
+}

@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core'
 import { Oferta } from "./shared/oferta.model"
 import { URL_API } from './app.api'
 
-import { firstValueFrom } from 'rxjs'
+import { map } from 'rxjs'
+import { retry } from 'rxjs'
+import { Observable } from 'rxjs'
+
 
 @Injectable()
 export class OfertasService {
@@ -12,7 +15,7 @@ export class OfertasService {
 
   public getOfertas(): Promise<Oferta[]> {
     return this.http.get(`${URL_API}/ofertas?destaque=true`)
-    .toPromise()
+      .toPromise()
       .then((resposta: any) => resposta)
   }
 
@@ -30,18 +33,25 @@ export class OfertasService {
 
   public getComoUsarOfertaPorId(id: number): Promise<string> {
     return this.http.get(`${URL_API}/como-usar?id=${id}`)
-    .toPromise()
-    .then((resposta: any) => {
-      return resposta[0].descricao
-    })
+      .toPromise()
+      .then((resposta: any) => {
+        return resposta[0].descricao
+      })
   }
 
   public getOndeFicaOfertaPorId(id: number): Promise<string> {
     return this.http.get(`${URL_API}/onde-fica?id=${id}`)
-    .toPromise()
-    .then((resposta: any) => {
-      return resposta[0].descricao
-    })
+      .toPromise()
+      .then((resposta: any) => {
+        return resposta[0].descricao
+      })
+  }
+
+  public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+    return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+      .pipe(
+        retry(10),
+        map((resposta: any) => resposta))
   }
 }
 
